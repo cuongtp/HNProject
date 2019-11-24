@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="GoStoreDbContext-Web.config Connection String" description="GoStoreDbContext Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Models.csdl|res://*/Models.Models.ssdl|res://*/Models.Models.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=hn.database.windows.net;initial catalog=gostore;persist security info=True;user id=hn;password=Nghia@123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Clone_Capstone_Fall2019_Back_end\\HNProject\\HNProject\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GoStoreDbContext']/@connectionString" />
+  </parameter>
+</parameters>

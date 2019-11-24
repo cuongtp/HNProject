@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HNProjectModelsStoreContainer" CdmEntityContainer="GoStoreDbContext">
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="HNProject.Models.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="HNProject.Models.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id_cate" ColumnName="id_cate" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="url_image" ColumnName="url_image" />
+          <ScalarProperty Name="url_icon" ColumnName="url_icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FavouriteProducts">
+      <EntityTypeMapping TypeName="HNProject.Models.FavouriteProduct">
+        <MappingFragment StoreEntitySet="FavouriteProduct">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedBacks">
+      <EntityTypeMapping TypeName="HNProject.Models.FeedBack">
+        <MappingFragment StoreEntitySet="FeedBack">
+          <ScalarProperty Name="id_feedback" ColumnName="id_feedback" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="feedback_rate" ColumnName="feedback_rate" />
+          <ScalarProperty Name="feedback_content" ColumnName="feedback_content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupAddresses">
+      <EntityTypeMapping TypeName="HNProject.Models.GroupAddress">
+        <MappingFragment StoreEntitySet="GroupAddress">
+          <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupImages">
+      <EntityTypeMapping TypeName="HNProject.Models.GroupImage">
+        <MappingFragment StoreEntitySet="GroupImage">
+          <ScalarProperty Name="id_group" ColumnName="id_group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="HNProject.Models.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="id_image" ColumnName="id_image" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="heigth" ColumnName="heigth" />
+          <ScalarProperty Name="prority" ColumnName="prority" />
+          <ScalarProperty Name="id_group" ColumnName="id_group" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Levels">
+      <EntityTypeMapping TypeName="HNProject.Models.Level">
+        <MappingFragment StoreEntitySet="Level">
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="point" ColumnName="point" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="HNProject.Models.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="id_orderdetail" ColumnName="id_orderdetail" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_market" ColumnName="id_market" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quanlity" ColumnName="quanlity" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="HNProject.Models.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="qualify" ColumnName="qualify" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="HNProject.Models.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="id_cate" ColumnName="id_cate" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInMarkets">
+      <EntityTypeMapping TypeName="HNProject.Models.ProductInMarket">
+        <MappingFragment StoreEntitySet="ProductInMarket">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_market" ColumnName="id_market" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="HNProject.Models.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMarkets">
+      <EntityTypeMapping TypeName="HNProject.Models.SMarket">
+        <MappingFragment StoreEntitySet="SMarket">
+          <ScalarProperty Name="id_market" ColumnName="id_market" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+          <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+          <ScalarProperty Name="id_image_group" ColumnName="id_image_group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMarketBrands">
+      <EntityTypeMapping TypeName="HNProject.Models.SMarketBrand">
+        <MappingFragment StoreEntitySet="SMarketBrand">
+          <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemConfigs">
+      <EntityTypeMapping TypeName="HNProject.Models.SystemConfig">
+        <MappingFragment StoreEntitySet="SystemConfig">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="password_secret_key" ColumnName="password_secret_key" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="USER_ROLE" ColumnName="USER_ROLE" />
+          <ScalarProperty Name="ORDER_STATE" ColumnName="ORDER_STATE" />
+          <ScalarProperty Name="LEVEL_USER" ColumnName="LEVEL_USER" />
+          <ScalarProperty Name="PRODUCT_TYPE" ColumnName="PRODUCT_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="HNProject.Models.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="id_transaction" ColumnName="id_transaction" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="created_time" ColumnName="created_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductBrand" TypeName="HNProject.Models.ProductBrand" StoreEntitySet="ProductBrand">
+      <EndProperty Name="Brand">
+        <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="id_product" ColumnName="id_product" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HNProject.Models.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="HNProject.Models.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+          <ScalarProperty Name="address1" ColumnName="address" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="id_address" ColumnName="id_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="HNProject.Models.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="system_cost" ColumnName="system_cost" />
+          <ScalarProperty Name="customer_comment" ColumnName="customer_comment" />
+          <ScalarProperty Name="order_code" ColumnName="order_code" />
+          <ScalarProperty Name="done_time" ColumnName="done_time" />
+          <ScalarProperty Name="taking_time" ColumnName="taking_time" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="dis_cus_to_market" ColumnName="dis_cus_to_market" />
+          <ScalarProperty Name="customer_address_id" ColumnName="customer_address_id" />
+          <ScalarProperty Name="time_to_ship" ColumnName="time_to_ship" />
+          <ScalarProperty Name="shipping_cost" ColumnName="shipping_cost" />
+          <ScalarProperty Name="point" ColumnName="point" />
+          <ScalarProperty Name="id_address" ColumnName="id_address" />
+          <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="id_shipper" ColumnName="id_shipper" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="HNProject.Models.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="isSelected" ColumnName="isSelected" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+          <ScalarProperty Name="fcm_token" ColumnName="fcm_token" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+          <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+          <ScalarProperty Name="fb_id" ColumnName="fb_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

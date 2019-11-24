@@ -1,0 +1,1781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HNProject.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="dob" Type="date" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="fb_id" Type="varchar" MaxLength="50" />
+          <Property Name="id_group_address" Type="varchar" MaxLength="50" />
+          <Property Name="id_group_image" Type="varchar" MaxLength="50" />
+          <Property Name="id_role" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="int" />
+          <Property Name="fcm_token" Type="nvarchar(max)" />
+          <Property Name="connection_id" Type="nvarchar(max)" />
+          <Property Name="isSelected" Type="int" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="id_address" />
+          </Key>
+          <Property Name="id_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lat" Type="float" />
+          <Property Name="long" Type="float" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="id_group_address" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="priority" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_brand" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id_cate" />
+          </Key>
+          <Property Name="id_cate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="url_image" Type="nvarchar" MaxLength="500" />
+          <Property Name="url_icon" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="FavouriteProduct">
+          <Key>
+            <PropertyRef Name="id_product" />
+            <PropertyRef Name="id_customer" />
+          </Key>
+          <Property Name="id_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_customer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="id_feedback" />
+          </Key>
+          <Property Name="id_feedback" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_order" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="feedback_rate" Type="float" />
+          <Property Name="feedback_content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GroupAddress">
+          <Key>
+            <PropertyRef Name="id_group_address" />
+          </Key>
+          <Property Name="id_group_address" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupImage">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="id_group" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id_image" />
+          </Key>
+          <Property Name="id_image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="describe" Type="nvarchar" MaxLength="50" />
+          <Property Name="width" Type="float" />
+          <Property Name="heigth" Type="float" />
+          <Property Name="prority" Type="int" />
+          <Property Name="id_group" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="id_account" />
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_account" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="point" Type="float" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="id_customer" Type="varchar" MaxLength="50" />
+          <Property Name="id_shipper" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="int" />
+          <Property Name="id_group_image" Type="varchar" MaxLength="50" />
+          <Property Name="id_address" Type="varchar" MaxLength="50" />
+          <Property Name="point" Type="int" />
+          <Property Name="shipping_cost" Type="float" />
+          <Property Name="time_to_ship" Type="time" Precision="7" />
+          <Property Name="customer_address_id" Type="varchar" MaxLength="50" />
+          <Property Name="dis_cus_to_market" Type="float" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="taking_time" Type="datetime" />
+          <Property Name="done_time" Type="datetime" />
+          <Property Name="order_code" Type="varchar" MaxLength="50" />
+          <Property Name="customer_comment" Type="nvarchar(max)" />
+          <Property Name="system_cost" Type="float" />
+          <Property Name="total_amount" Type="float" />
+          <Property Name="token" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id_orderdetail" />
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_orderdetail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_order" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_product" Type="varchar" MaxLength="50" />
+          <Property Name="id_market" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="float" />
+          <Property Name="quanlity" Type="float" />
+          <Property Name="priority" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="id_group_image" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="float" />
+          <Property Name="qualify" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductBrand">
+          <Key>
+            <PropertyRef Name="id_product" />
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_brand" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="id_cate" />
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_cate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductInMarket">
+          <Key>
+            <PropertyRef Name="id_product" />
+            <PropertyRef Name="id_market" />
+          </Key>
+          <Property Name="id_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_market" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SMarket">
+          <Key>
+            <PropertyRef Name="id_market" />
+          </Key>
+          <Property Name="id_market" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_group_address" Type="varchar" MaxLength="50" />
+          <Property Name="id_brand" Type="varchar" MaxLength="50" />
+          <Property Name="id_image_group" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SMarketBrand">
+          <Key>
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_brand" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_group_image" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password_secret_key" Type="varchar" MaxLength="50" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="USER_ROLE" Type="nvarchar(max)" />
+          <Property Name="ORDER_STATE" Type="nvarchar(max)" />
+          <Property Name="LEVEL_USER" Type="nvarchar(max)" />
+          <Property Name="PRODUCT_TYPE" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="id_transaction" />
+          </Key>
+          <Property Name="id_transaction" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_order" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="money" Type="float" />
+          <Property Name="created_time" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Account_GroupAddress">
+          <End Role="GroupAddress" Type="Self.GroupAddress" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupAddress">
+              <PropertyRef Name="id_group_address" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_group_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_GroupAddress">
+          <End Role="GroupAddress" Type="Self.GroupAddress" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupAddress">
+              <PropertyRef Name="id_group_address" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="id_group_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavouriteProduct_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="FavouriteProduct" Type="Self.FavouriteProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="FavouriteProduct">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavouriteProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="FavouriteProduct" Type="Self.FavouriteProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="FavouriteProduct">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeedBack_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="FeedBack">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeedBack_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="FeedBack">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grocery_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="id_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Level_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Level" Type="Self.Level" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Level">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Level_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Level" Type="Self.Level" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="Level">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Account1">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_shipper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Grocery">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_SMarket">
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMarket">
+              <PropertyRef Name="id_market" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_market" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductBrand_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="ProductBrand" Type="Self.ProductBrand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id_brand" />
+            </Principal>
+            <Dependent Role="ProductBrand">
+              <PropertyRef Name="id_brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductBrand_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductBrand" Type="Self.ProductBrand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="ProductBrand">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id_cate" />
+            </Principal>
+            <Dependent Role="ProductCategory">
+              <PropertyRef Name="id_cate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="ProductCategory">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInMarket_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductInMarket" Type="Self.ProductInMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="ProductInMarket">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInMarket_SMarket">
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="1" />
+          <End Role="ProductInMarket" Type="Self.ProductInMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMarket">
+              <PropertyRef Name="id_market" />
+            </Principal>
+            <Dependent Role="ProductInMarket">
+              <PropertyRef Name="id_market" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarket_GroupAddress">
+          <End Role="GroupAddress" Type="Self.GroupAddress" Multiplicity="0..1" />
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupAddress">
+              <PropertyRef Name="id_group_address" />
+            </Principal>
+            <Dependent Role="SMarket">
+              <PropertyRef Name="id_group_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarket_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="SMarket">
+              <PropertyRef Name="id_image_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarket_SMarketBrand">
+          <End Role="SMarketBrand" Type="Self.SMarketBrand" Multiplicity="0..1" />
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMarketBrand">
+              <PropertyRef Name="id_brand" />
+            </Principal>
+            <Dependent Role="SMarket">
+              <PropertyRef Name="id_brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarketBrand_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="SMarketBrand" Type="Self.SMarketBrand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="SMarketBrand">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HNProjectModelsStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavouriteProduct" EntityType="Self.FavouriteProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupAddress" EntityType="Self.GroupAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupImage" EntityType="Self.GroupImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductBrand" EntityType="Self.ProductBrand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductInMarket" EntityType="Self.ProductInMarket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMarket" EntityType="Self.SMarket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMarketBrand" EntityType="Self.SMarketBrand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemConfig" EntityType="Self.SystemConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_GroupAddress" Association="Self.FK_Account_GroupAddress">
+            <End Role="GroupAddress" EntitySet="GroupAddress" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_GroupImage" Association="Self.FK_Account_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImage" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Role" Association="Self.FK_Account_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_GroupAddress" Association="Self.FK_Address_GroupAddress">
+            <End Role="GroupAddress" EntitySet="GroupAddress" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavouriteProduct_Account" Association="Self.FK_FavouriteProduct_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="FavouriteProduct" EntitySet="FavouriteProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavouriteProduct_Product" Association="Self.FK_FavouriteProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="FavouriteProduct" EntitySet="FavouriteProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeedBack_Order" Association="Self.FK_FeedBack_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="FeedBack" EntitySet="FeedBack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeedBack_Role" Association="Self.FK_FeedBack_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="FeedBack" EntitySet="FeedBack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grocery_GroupImage" Association="Self.FK_Grocery_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_GroupImage" Association="Self.FK_Image_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImage" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Level_Account" Association="Self.FK_Level_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Level" EntitySet="Level" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Level_Role" Association="Self.FK_Level_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Level" EntitySet="Level" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Account" Association="Self.FK_Order_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Account1" Association="Self.FK_Order_Account1">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_GroupImage" Association="Self.FK_Order_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImage" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Grocery" Association="Self.FK_OrderDetail_Grocery">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Order" Association="Self.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_SMarket" Association="Self.FK_OrderDetail_SMarket">
+            <End Role="SMarket" EntitySet="SMarket" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductBrand_Brand" Association="Self.FK_ProductBrand_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="ProductBrand" EntitySet="ProductBrand" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductBrand_Product" Association="Self.FK_ProductBrand_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductBrand" EntitySet="ProductBrand" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_Category" Association="Self.FK_ProductCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_Product" Association="Self.FK_ProductCategory_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInMarket_Product" Association="Self.FK_ProductInMarket_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductInMarket" EntitySet="ProductInMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInMarket_SMarket" Association="Self.FK_ProductInMarket_SMarket">
+            <End Role="SMarket" EntitySet="SMarket" />
+            <End Role="ProductInMarket" EntitySet="ProductInMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarket_GroupAddress" Association="Self.FK_SMarket_GroupAddress">
+            <End Role="GroupAddress" EntitySet="GroupAddress" />
+            <End Role="SMarket" EntitySet="SMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarket_GroupImage" Association="Self.FK_SMarket_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImage" />
+            <End Role="SMarket" EntitySet="SMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarket_SMarketBrand" Association="Self.FK_SMarket_SMarketBrand">
+            <End Role="SMarketBrand" EntitySet="SMarketBrand" />
+            <End Role="SMarket" EntitySet="SMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarketBrand_GroupImage" Association="Self.FK_SMarketBrand_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImage" />
+            <End Role="SMarketBrand" EntitySet="SMarketBrand" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Order" Association="Self.FK_Transaction_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HNProject.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.ProductBrand" FromRole="Brand" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id_cate" />
+          </Key>
+          <Property Name="id_cate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url_image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="url_icon" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductCategories" Relationship="Self.FK_ProductCategory_Category" FromRole="Category" ToRole="ProductCategory" />
+        </EntityType>
+        <EntityType Name="FavouriteProduct">
+          <Key>
+            <PropertyRef Name="id_product" />
+            <PropertyRef Name="id_customer" />
+          </Key>
+          <Property Name="id_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_FavouriteProduct_Product" FromRole="FavouriteProduct" ToRole="Product" />
+          <NavigationProperty Name="Account" Relationship="HNProject.Models.FK_FavouriteProduct_Account" FromRole="FavouriteProduct" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="id_feedback" />
+          </Key>
+          <Property Name="id_feedback" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="feedback_rate" Type="Double" />
+          <Property Name="feedback_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_FeedBack_Role" FromRole="FeedBack" ToRole="Role" />
+          <NavigationProperty Name="Order" Relationship="HNProject.Models.FK_FeedBack_Order" FromRole="FeedBack" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="GroupAddress">
+          <Key>
+            <PropertyRef Name="id_group_address" />
+          </Key>
+          <Property Name="id_group_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SMarkets" Relationship="Self.FK_SMarket_GroupAddress" FromRole="GroupAddress" ToRole="SMarket" />
+          <NavigationProperty Name="Addresses" Relationship="HNProject.Models.FK_Address_GroupAddress" FromRole="GroupAddress" ToRole="Address" />
+          <NavigationProperty Name="Accounts" Relationship="HNProject.Models.FK_Account_GroupAddress" FromRole="GroupAddress" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="GroupImage">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="id_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Grocery_GroupImage" FromRole="GroupImage" ToRole="Product" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Image_GroupImage" FromRole="GroupImage" ToRole="Image" />
+          <NavigationProperty Name="SMarkets" Relationship="Self.FK_SMarket_GroupImage" FromRole="GroupImage" ToRole="SMarket" />
+          <NavigationProperty Name="SMarketBrands" Relationship="Self.FK_SMarketBrand_GroupImage" FromRole="GroupImage" ToRole="SMarketBrand" />
+          <NavigationProperty Name="Orders" Relationship="HNProject.Models.FK_Order_GroupImage" FromRole="GroupImage" ToRole="Order" />
+          <NavigationProperty Name="Accounts" Relationship="HNProject.Models.FK_Account_GroupImage" FromRole="GroupImage" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id_image" />
+          </Key>
+          <Property Name="id_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="width" Type="Double" />
+          <Property Name="heigth" Type="Double" />
+          <Property Name="prority" Type="Int32" />
+          <Property Name="id_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GroupImage" Relationship="Self.FK_Image_GroupImage" FromRole="Image" ToRole="GroupImage" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="id_account" />
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="point" Type="Double" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Level_Role" FromRole="Level" ToRole="Role" />
+          <NavigationProperty Name="Account" Relationship="HNProject.Models.FK_Level_Account" FromRole="Level" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id_orderdetail" />
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_orderdetail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_market" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" />
+          <Property Name="quanlity" Type="Double" />
+          <Property Name="priority" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetail_Grocery" FromRole="OrderDetail" ToRole="Product" />
+          <NavigationProperty Name="SMarket" Relationship="Self.FK_OrderDetail_SMarket" FromRole="OrderDetail" ToRole="SMarket" />
+          <NavigationProperty Name="Order" Relationship="HNProject.Models.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_group_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" />
+          <Property Name="qualify" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="Int32" />
+          <NavigationProperty Name="FavouriteProducts" Relationship="Self.FK_FavouriteProduct_Product" FromRole="Product" ToRole="FavouriteProduct" />
+          <NavigationProperty Name="GroupImage" Relationship="Self.FK_Grocery_GroupImage" FromRole="Product" ToRole="GroupImage" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Grocery" FromRole="Product" ToRole="OrderDetail" />
+          <NavigationProperty Name="ProductCategories" Relationship="Self.FK_ProductCategory_Product" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductInMarkets" Relationship="Self.FK_ProductInMarket_Product" FromRole="Product" ToRole="ProductInMarket" />
+          <NavigationProperty Name="Brands" Relationship="Self.ProductBrand" FromRole="Product" ToRole="Brand" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="id_cate" />
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_cate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_ProductCategory_Category" FromRole="ProductCategory" ToRole="Category" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductCategory_Product" FromRole="ProductCategory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductInMarket">
+          <Key>
+            <PropertyRef Name="id_product" />
+            <PropertyRef Name="id_market" />
+          </Key>
+          <Property Name="id_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_market" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductInMarket_Product" FromRole="ProductInMarket" ToRole="Product" />
+          <NavigationProperty Name="SMarket" Relationship="Self.FK_ProductInMarket_SMarket" FromRole="ProductInMarket" ToRole="SMarket" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FeedBacks" Relationship="Self.FK_FeedBack_Role" FromRole="Role" ToRole="FeedBack" />
+          <NavigationProperty Name="Levels" Relationship="Self.FK_Level_Role" FromRole="Role" ToRole="Level" />
+          <NavigationProperty Name="Accounts" Relationship="HNProject.Models.FK_Account_Role" FromRole="Role" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="SMarket">
+          <Key>
+            <PropertyRef Name="id_market" />
+          </Key>
+          <Property Name="id_market" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_group_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_image_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GroupAddress" Relationship="Self.FK_SMarket_GroupAddress" FromRole="SMarket" ToRole="GroupAddress" />
+          <NavigationProperty Name="GroupImage" Relationship="Self.FK_SMarket_GroupImage" FromRole="SMarket" ToRole="GroupImage" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_SMarket" FromRole="SMarket" ToRole="OrderDetail" />
+          <NavigationProperty Name="ProductInMarkets" Relationship="Self.FK_ProductInMarket_SMarket" FromRole="SMarket" ToRole="ProductInMarket" />
+          <NavigationProperty Name="SMarketBrand" Relationship="Self.FK_SMarket_SMarketBrand" FromRole="SMarket" ToRole="SMarketBrand" />
+        </EntityType>
+        <EntityType Name="SMarketBrand">
+          <Key>
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_group_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GroupImage" Relationship="Self.FK_SMarketBrand_GroupImage" FromRole="SMarketBrand" ToRole="GroupImage" />
+          <NavigationProperty Name="SMarkets" Relationship="Self.FK_SMarket_SMarketBrand" FromRole="SMarketBrand" ToRole="SMarket" />
+        </EntityType>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password_secret_key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="USER_ROLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ORDER_STATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_USER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="id_transaction" />
+          </Key>
+          <Property Name="id_transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="money" Type="Double" />
+          <Property Name="created_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="HNProject.Models.FK_Transaction_Order" FromRole="Transaction" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_ProductCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id_cate" />
+            </Principal>
+            <Dependent Role="ProductCategory">
+              <PropertyRef Name="id_cate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavouriteProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="FavouriteProduct" Type="Self.FavouriteProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="FavouriteProduct">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeedBack_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="FeedBack">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarket_GroupAddress">
+          <End Role="GroupAddress" Type="Self.GroupAddress" Multiplicity="0..1" />
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupAddress">
+              <PropertyRef Name="id_group_address" />
+            </Principal>
+            <Dependent Role="SMarket">
+              <PropertyRef Name="id_group_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grocery_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="id_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarket_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="SMarket">
+              <PropertyRef Name="id_image_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarketBrand_GroupImage">
+          <End Role="GroupImage" Type="Self.GroupImage" Multiplicity="0..1" />
+          <End Role="SMarketBrand" Type="Self.SMarketBrand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="SMarketBrand">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Level_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Level" Type="Self.Level" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="Level">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Grocery">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_SMarket">
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMarket">
+              <PropertyRef Name="id_market" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_market" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="ProductCategory">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInMarket_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductInMarket" Type="Self.ProductInMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="ProductInMarket">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInMarket_SMarket">
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="1" />
+          <End Role="ProductInMarket" Type="Self.ProductInMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMarket">
+              <PropertyRef Name="id_market" />
+            </Principal>
+            <Dependent Role="ProductInMarket">
+              <PropertyRef Name="id_market" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMarket_SMarketBrand">
+          <End Role="SMarketBrand" Type="Self.SMarketBrand" Multiplicity="0..1" />
+          <End Role="SMarket" Type="Self.SMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMarketBrand">
+              <PropertyRef Name="id_brand" />
+            </Principal>
+            <Dependent Role="SMarket">
+              <PropertyRef Name="id_brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductBrand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GoStoreDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="FavouriteProducts" EntityType="Self.FavouriteProduct" />
+          <EntitySet Name="FeedBacks" EntityType="Self.FeedBack" />
+          <EntitySet Name="GroupAddresses" EntityType="Self.GroupAddress" />
+          <EntitySet Name="GroupImages" EntityType="Self.GroupImage" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="Levels" EntityType="Self.Level" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+          <EntitySet Name="ProductInMarkets" EntityType="Self.ProductInMarket" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="SMarkets" EntityType="Self.SMarket" />
+          <EntitySet Name="SMarketBrands" EntityType="Self.SMarketBrand" />
+          <EntitySet Name="SystemConfigs" EntityType="Self.SystemConfig" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <AssociationSet Name="FK_ProductCategory_Category" Association="Self.FK_ProductCategory_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavouriteProduct_Product" Association="Self.FK_FavouriteProduct_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="FavouriteProduct" EntitySet="FavouriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeedBack_Role" Association="Self.FK_FeedBack_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="FeedBack" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarket_GroupAddress" Association="Self.FK_SMarket_GroupAddress">
+            <End Role="GroupAddress" EntitySet="GroupAddresses" />
+            <End Role="SMarket" EntitySet="SMarkets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grocery_GroupImage" Association="Self.FK_Grocery_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImages" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_GroupImage" Association="Self.FK_Image_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImages" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarket_GroupImage" Association="Self.FK_SMarket_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImages" />
+            <End Role="SMarket" EntitySet="SMarkets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarketBrand_GroupImage" Association="Self.FK_SMarketBrand_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImages" />
+            <End Role="SMarketBrand" EntitySet="SMarketBrands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Level_Role" Association="Self.FK_Level_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Level" EntitySet="Levels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Grocery" Association="Self.FK_OrderDetail_Grocery">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_SMarket" Association="Self.FK_OrderDetail_SMarket">
+            <End Role="SMarket" EntitySet="SMarkets" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_Product" Association="Self.FK_ProductCategory_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInMarket_Product" Association="Self.FK_ProductInMarket_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductInMarket" EntitySet="ProductInMarkets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInMarket_SMarket" Association="Self.FK_ProductInMarket_SMarket">
+            <End Role="SMarket" EntitySet="SMarkets" />
+            <End Role="ProductInMarket" EntitySet="ProductInMarkets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMarket_SMarketBrand" Association="Self.FK_SMarket_SMarketBrand">
+            <End Role="SMarketBrand" EntitySet="SMarketBrands" />
+            <End Role="SMarket" EntitySet="SMarkets" />
+          </AssociationSet>
+          <AssociationSet Name="ProductBrand" Association="Self.ProductBrand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="HNProject.Models.sysdiagram" />
+          <EntitySet Name="Addresses" EntityType="HNProject.Models.Address" />
+          <AssociationSet Name="FK_Address_GroupAddress" Association="HNProject.Models.FK_Address_GroupAddress">
+            <End Role="GroupAddress" EntitySet="GroupAddresses" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="HNProject.Models.Order" />
+          <AssociationSet Name="FK_FeedBack_Order" Association="HNProject.Models.FK_FeedBack_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="FeedBack" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_GroupImage" Association="HNProject.Models.FK_Order_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImages" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Order" Association="HNProject.Models.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Order" Association="HNProject.Models.FK_Transaction_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="HNProject.Models.Account" />
+          <AssociationSet Name="FK_Account_GroupAddress" Association="HNProject.Models.FK_Account_GroupAddress">
+            <End Role="GroupAddress" EntitySet="GroupAddresses" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_GroupImage" Association="HNProject.Models.FK_Account_GroupImage">
+            <End Role="GroupImage" EntitySet="GroupImages" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Role" Association="HNProject.Models.FK_Account_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavouriteProduct_Account" Association="HNProject.Models.FK_FavouriteProduct_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="FavouriteProduct" EntitySet="FavouriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Level_Account" Association="HNProject.Models.FK_Level_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Level" EntitySet="Levels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Account" Association="HNProject.Models.FK_Order_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Account1" Association="HNProject.Models.FK_Order_Account1">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="id_address" />
+          </Key>
+          <Property Name="id_address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="long" Type="Double" />
+          <Property Name="address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_group_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="priority" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="GroupAddress" Relationship="HNProject.Models.FK_Address_GroupAddress" FromRole="Address" ToRole="GroupAddress" />
+        </EntityType>
+        <Association Name="FK_Address_GroupAddress">
+          <End Type="HNProject.Models.GroupAddress" Role="GroupAddress" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupAddress">
+              <PropertyRef Name="id_group_address" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="id_group_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="id_customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_shipper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="id_group_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="shipping_cost" Type="Double" />
+          <Property Name="time_to_ship" Type="Time" Precision="7" />
+          <Property Name="customer_address_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dis_cus_to_market" Type="Double" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="taking_time" Type="DateTime" Precision="3" />
+          <Property Name="done_time" Type="DateTime" Precision="3" />
+          <Property Name="order_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customer_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="system_cost" Type="Double" />
+          <Property Name="total_amount" Type="Double" />
+          <Property Name="token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FeedBacks" Relationship="HNProject.Models.FK_FeedBack_Order" FromRole="Order" ToRole="FeedBack" />
+          <NavigationProperty Name="GroupImage" Relationship="HNProject.Models.FK_Order_GroupImage" FromRole="Order" ToRole="GroupImage" />
+          <NavigationProperty Name="OrderDetails" Relationship="HNProject.Models.FK_OrderDetail_Order" FromRole="Order" ToRole="OrderDetail" />
+          <NavigationProperty Name="Transactions" Relationship="HNProject.Models.FK_Transaction_Order" FromRole="Order" ToRole="Transaction" />
+          <NavigationProperty Name="Account" Relationship="HNProject.Models.FK_Order_Account" FromRole="Order" ToRole="Account" />
+          <NavigationProperty Name="Account1" Relationship="HNProject.Models.FK_Order_Account1" FromRole="Order" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_FeedBack_Order">
+          <End Type="HNProject.Models.Order" Role="Order" Multiplicity="1" />
+          <End Type="HNProject.Models.FeedBack" Role="FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="FeedBack">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_GroupImage">
+          <End Type="HNProject.Models.GroupImage" Role="GroupImage" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Order">
+          <End Type="HNProject.Models.Order" Role="Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HNProject.Models.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Order">
+          <End Type="HNProject.Models.Order" Role="Order" Multiplicity="1" />
+          <End Type="HNProject.Models.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dob" Type="DateTime" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fb_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_group_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_group_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="fcm_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="connection_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isSelected" Type="Int32" />
+          <NavigationProperty Name="GroupAddress" Relationship="HNProject.Models.FK_Account_GroupAddress" FromRole="Account" ToRole="GroupAddress" />
+          <NavigationProperty Name="GroupImage" Relationship="HNProject.Models.FK_Account_GroupImage" FromRole="Account" ToRole="GroupImage" />
+          <NavigationProperty Name="Role" Relationship="HNProject.Models.FK_Account_Role" FromRole="Account" ToRole="Role" />
+          <NavigationProperty Name="FavouriteProducts" Relationship="HNProject.Models.FK_FavouriteProduct_Account" FromRole="Account" ToRole="FavouriteProduct" />
+          <NavigationProperty Name="Levels" Relationship="HNProject.Models.FK_Level_Account" FromRole="Account" ToRole="Level" />
+          <NavigationProperty Name="Orders" Relationship="HNProject.Models.FK_Order_Account" FromRole="Account" ToRole="Order" />
+          <NavigationProperty Name="Orders1" Relationship="HNProject.Models.FK_Order_Account1" FromRole="Account" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Account_GroupAddress">
+          <End Type="HNProject.Models.GroupAddress" Role="GroupAddress" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupAddress">
+              <PropertyRef Name="id_group_address" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_group_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_GroupImage">
+          <End Type="HNProject.Models.GroupImage" Role="GroupImage" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupImage">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_group_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Role">
+          <End Type="HNProject.Models.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavouriteProduct_Account">
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="1" />
+          <End Type="HNProject.Models.FavouriteProduct" Role="FavouriteProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="FavouriteProduct">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Level_Account">
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="1" />
+          <End Type="HNProject.Models.Level" Role="Level" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Level">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Account">
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Account1">
+          <End Type="HNProject.Models.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="HNProject.Models.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_shipper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HNProjectModelsStoreContainer" CdmEntityContainer="GoStoreDbContext">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="HNProject.Models.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="HNProject.Models.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="id_cate" ColumnName="id_cate" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="url_image" ColumnName="url_image" />
+                <ScalarProperty Name="url_icon" ColumnName="url_icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavouriteProducts">
+            <EntityTypeMapping TypeName="HNProject.Models.FavouriteProduct">
+              <MappingFragment StoreEntitySet="FavouriteProduct">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeedBacks">
+            <EntityTypeMapping TypeName="HNProject.Models.FeedBack">
+              <MappingFragment StoreEntitySet="FeedBack">
+                <ScalarProperty Name="id_feedback" ColumnName="id_feedback" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="feedback_rate" ColumnName="feedback_rate" />
+                <ScalarProperty Name="feedback_content" ColumnName="feedback_content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupAddresses">
+            <EntityTypeMapping TypeName="HNProject.Models.GroupAddress">
+              <MappingFragment StoreEntitySet="GroupAddress">
+                <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupImages">
+            <EntityTypeMapping TypeName="HNProject.Models.GroupImage">
+              <MappingFragment StoreEntitySet="GroupImage">
+                <ScalarProperty Name="id_group" ColumnName="id_group" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="HNProject.Models.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="id_image" ColumnName="id_image" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="heigth" ColumnName="heigth" />
+                <ScalarProperty Name="prority" ColumnName="prority" />
+                <ScalarProperty Name="id_group" ColumnName="id_group" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="HNProject.Models.Level">
+              <MappingFragment StoreEntitySet="Level">
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="point" ColumnName="point" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="HNProject.Models.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="id_orderdetail" ColumnName="id_orderdetail" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_market" ColumnName="id_market" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quanlity" ColumnName="quanlity" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="HNProject.Models.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="qualify" ColumnName="qualify" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="HNProject.Models.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategory">
+                <ScalarProperty Name="id_cate" ColumnName="id_cate" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInMarkets">
+            <EntityTypeMapping TypeName="HNProject.Models.ProductInMarket">
+              <MappingFragment StoreEntitySet="ProductInMarket">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_market" ColumnName="id_market" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="HNProject.Models.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMarkets">
+            <EntityTypeMapping TypeName="HNProject.Models.SMarket">
+              <MappingFragment StoreEntitySet="SMarket">
+                <ScalarProperty Name="id_market" ColumnName="id_market" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+                <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+                <ScalarProperty Name="id_image_group" ColumnName="id_image_group" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMarketBrands">
+            <EntityTypeMapping TypeName="HNProject.Models.SMarketBrand">
+              <MappingFragment StoreEntitySet="SMarketBrand">
+                <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemConfigs">
+            <EntityTypeMapping TypeName="HNProject.Models.SystemConfig">
+              <MappingFragment StoreEntitySet="SystemConfig">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password_secret_key" ColumnName="password_secret_key" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="USER_ROLE" ColumnName="USER_ROLE" />
+                <ScalarProperty Name="ORDER_STATE" ColumnName="ORDER_STATE" />
+                <ScalarProperty Name="LEVEL_USER" ColumnName="LEVEL_USER" />
+                <ScalarProperty Name="PRODUCT_TYPE" ColumnName="PRODUCT_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="HNProject.Models.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="id_transaction" ColumnName="id_transaction" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="created_time" ColumnName="created_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ProductBrand" TypeName="HNProject.Models.ProductBrand" StoreEntitySet="ProductBrand">
+            <EndProperty Name="Brand">
+              <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+            </EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="id_product" ColumnName="id_product" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HNProject.Models.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="HNProject.Models.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+                <ScalarProperty Name="address1" ColumnName="address" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="id_address" ColumnName="id_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="HNProject.Models.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+                <ScalarProperty Name="system_cost" ColumnName="system_cost" />
+                <ScalarProperty Name="customer_comment" ColumnName="customer_comment" />
+                <ScalarProperty Name="order_code" ColumnName="order_code" />
+                <ScalarProperty Name="done_time" ColumnName="done_time" />
+                <ScalarProperty Name="taking_time" ColumnName="taking_time" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="dis_cus_to_market" ColumnName="dis_cus_to_market" />
+                <ScalarProperty Name="customer_address_id" ColumnName="customer_address_id" />
+                <ScalarProperty Name="time_to_ship" ColumnName="time_to_ship" />
+                <ScalarProperty Name="shipping_cost" ColumnName="shipping_cost" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="id_address" ColumnName="id_address" />
+                <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="id_shipper" ColumnName="id_shipper" />
+                <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="HNProject.Models.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="isSelected" ColumnName="isSelected" />
+                <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+                <ScalarProperty Name="fcm_token" ColumnName="fcm_token" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="id_group_image" ColumnName="id_group_image" />
+                <ScalarProperty Name="id_group_address" ColumnName="id_group_address" />
+                <ScalarProperty Name="fb_id" ColumnName="fb_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
